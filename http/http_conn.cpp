@@ -534,10 +534,10 @@ http_conn::HTTP_CODE http_conn::do_request(){
             strcpy(sql_insert, "INSERT INTO user(username, passwd) VALUES(");
             strcat(sql_insert, "'");
             strcat(sql_insert, name);
-            strcat(sql_insert, "', ,");
+            strcat(sql_insert, "', '");
             strcat(sql_insert, password);
             strcat(sql_insert, "')");
-
+            std::cout << sql_insert << std::endl;
             //判断map中能否找到重复的用户名
             if(m_users.find(name) == m_users.end()){
                 //向数据库中插入数据时，需要通过锁来同步数据
